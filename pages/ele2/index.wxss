@@ -1,0 +1,174 @@
+/* pages/ele2/index.wxss */
+/* 样式 */
+page {
+  height: 100%;
+ background: #f6f6f6;
+}
+
+.container1 {
+    margin-top: 10rpx;
+  font-size: 14px;
+  line-height: 24px;
+  position: relative;
+}
+
+.container1 .tab {
+  position: fixed;
+  top: var(--window-top);
+  left: 0;
+  z-index: 9999;
+}
+
+
+
+.container1 .coupon .item {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 40rpx 40rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-bottom: 26rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+}
+
+.container1 .coupon .item .top {
+  height: 116rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container1 .coupon .item .top .left {
+  height: 116rpx;
+  width: 400rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container1 .coupon .item .top .left .content {
+  width: 100%;
+}
+
+.container1 .coupon .item .top .left .icon {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 52rpx;
+  height: auto;
+}
+
+.container1 .coupon .item .top .left .name {
+  text-align: left;
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 34rpx;
+  color: #000;
+  line-height: 50rpx;
+  font-weight: bold;
+  margin-left: 15rpx;
+}
+
+.container1 .coupon .item .top .left .text {
+  width: 150rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #61300e;
+  background: linear-gradient(90deg, #f9db8d, #f8d98a);
+  border-radius: 6rpx;
+}
+
+.container1 .coupon .item .top .right {
+  width: 170rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  background: linear-gradient(90deg, #ec6f43, #ea4a36);
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+
+.container1 .coupon .item .bottom {
+  height: auto;
+  width: 100%;
+}
+
+.container1 .coupon .item .bottom image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+
+.loading {
+    text-align: center;
+}
+
+
+.takeout_index {
+  display: flex;
+  flex-direction: column;
+}
+
+.takeout_index .content_wrap {
+  width: 100%;
+}
+
+.takeout_index .content_wrap .takeout_wrap {
+  display: flex;
+  flex-direction: column;
+  padding: 36rpx 40rpx 40rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-bottom: 26rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+}
+
+.takeout_index .content_wrap .takeout_wrap .takeout_info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.takeout_index .content_wrap .takeout_wrap .takeout_info .takeout_icon {
+  width: 56rpx;
+  height: 56rpx;
+}
+
+.takeout_index .content_wrap .takeout_wrap .takeout_info .takeout_name {
+  font-size: 30rpx;
+  margin-left: 16rpx;
+  flex: 1;
+}
+
+.takeout_index .content_wrap .takeout_wrap .takeout_info .takeout_button {
+  padding: 12rpx 30rpx;
+  border-radius: 50rpx;
+  color: #fff;
+}
+
+.takeout_index .content_wrap .takeout_wrap .takeout_image {
+  margin-top: 40rpx;
+  border-radius: 20rpx;
+}
+
+.takeout_index .content_wrap .share_wrap {
+  display: flex;
+  flex-direction: row;
+  padding: 0rpx 30rpx;
+  margin-bottom: 40rpx;
+}
+
+.takeout_index .content_wrap .share_wrap .meituan_share {
+  border-radius: 20rpx;
+}
+
+.takeout_index .content_wrap .share_wrap .eleme_share {
+  margin-left: 24rpx;
+  border-radius: 20rpx;
+}

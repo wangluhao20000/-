@@ -1,0 +1,20 @@
+<cu-custom bgColor="bg-{{theme}}" isBack="{{false}}">
+    <view slot="content">小工具</view>
+</cu-custom>
+<view class="cu-card">
+    <view bindtap="toChild" class="cu-item bg-img shadow-blur" data-url="{{item.url}}" style="background-image:url({{item.img}});" wx:for="{{list}}">
+        <view class="cardTitle">
+        {{item.title}}
+      </view>
+    </view>
+</view>
+<view class="footer">
+    <view class="padding-sm"></view>
+    <view class="text-gray text-center margin-bottom text-sm">- © 微信公众号：随缘干货-</view>
+
+    <view class="padding-sm"></view>
+    <view class='wrapper'>
+ <button class='wepay' bindtap='goBaidu'>点击跳转</button>
+ </view>
+ <web-view src="https://www.baidu.com/"></web-view>
+</view>

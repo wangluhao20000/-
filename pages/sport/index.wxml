@@ -1,0 +1,36 @@
+<cu-custom bgColor="bg-{{theme}}" isCustom="{{true}}">
+    <view slot="content">运动目标</view>
+</cu-custom>
+<scroll-view scrollWithAnimation scrollX class="bg-white nav text-center" scrollLeft="{{scrollLeft}}">
+    <view bindtap="tabSelect" class="cu-item {{0==TabCur?'text-green cur':''}}" data-id="0">
+    设定目标
+  </view>
+</scroll-view>
+<view class="margin bg-white padding-sm radius-xl shadow-lg">
+    <view class="text-content">
+        <form bindsubmit="doSubmit">
+            <view class="cu-form-group">
+                <view class="title">账  号</view>
+                <input name="user" placeholder="请输入账号" type="text" value="{{user}}"></input>
+            </view>
+            <view class="cu-form-group">
+                <view class="title">密  码</view>
+                <input name="password" placeholder="请输入密码" type="password" value="{{password}}"></input>
+            </view>
+            <view class="cu-form-group">
+                <view class="title">目 标</view>
+                <input name="step" placeholder="请输入目标" type="number" value="{{step}}"></input>
+            </view>
+            <view class="cu-bar btn-group">
+                <button class="cu-btn bg-{{theme}} shadow-blur round" formType="submit">确定目标</button>
+            </view>
+        </form>
+    </view>
+</view>
+<ad unitId="adunit-2b970df2998d6430"></ad>
+<view class="footer">
+    <view class="padding-sm"></view>
+    <view class="text-gray text-center margin-bottom text-sm">- © 微信公众号：随缘干货-</view>
+
+    <view class="padding-sm"></view>
+</view>

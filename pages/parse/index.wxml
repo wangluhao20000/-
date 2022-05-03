@@ -1,0 +1,264 @@
+<cu-custom bgColor="bg-gradual-{{theme}}" isCustom="{{true}}">
+    <view slot="content">去除水印</view>
+</cu-custom>
+<view class="margin bg-white padding-sm radius-xl shadow-lg parse-input" style="color:black">
+    <view bindtap="clickUrl" class="url-box" wx:if="{{showUrl=='show'}}">
+        <scroll-view scrollY="true" style="height:170rpx; width:100%">
+			{{parseUrl}}
+		</scroll-view>
+    </view>
+    <view class="tip-box">
+        <view bindtap="clickTip" class="parse-input-tip" wx:if="{{showTip=='show'}}">
+            <text style="color:black">轻触此区域粘贴剪贴板内容</text>
+            <text style="color:black">链接需前往视频平台复制</text>
+            <text class="text-xs">提示：再次点击可清空或复制链接地址</text>
+        </view>
+        <view class="parse-input-action" wx:if="{{showAction=='show'}}">
+            <view class="cu-list grid col-2">
+                <view bindtap="delUrl" class="padding">
+                    <view class="cuIcon-delete text-grey"></view>
+                    <text class="text-xs">清空</text>
+                </view>
+                <view bindtap="copyUrl1" class="padding" data-begin_url="{{parseUrl}}">
+                    <view class="cuIcon-copy text-grey"></view>
+                    <text class="text-xs">复制</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="flex justify-center">
+    <button bindtap="doParse" class="cu-btn bg-{{theme}} shadow-blur round lg">解析视频</button>
+</view>
+<ad unitId="adunit-2b970df2998d6430"></ad>
+<scroll-view scrollWithAnimation scrollX class="bg-white nav" scrollLeft="{{scrollLeft}}">
+    <view bindtap="tabSelect" class="cu-item {{index==TabCur?'cur text-'+theme:''}}" data-id="{{index}}" data-tag="navTag" wx:for="{{TabData}}">
+		{{item}}
+	</view>
+</scroll-view>
+<swiper bindchange="tabSelect" current="{{currentIndex}}" data-tag="swiperTag" style="height:700rpx">
+    <swiper-item>
+        <view class="margin ad-view" wx:if="{{showAd=='show'}}"></view>
+        <view class="margin bg-white" wx:if="{{showParse=='show'}}">
+            <view class="section tc">
+                <video controls id="myVideo" src="{{okUrl}}"></video>
+                <view class="btn-area"></view>
+            </view>
+            <view class="cu-progress radius striped active">
+                <view class="bg-{{theme}}" style="width:{{loading?precent:''}};">{{precent}}</view>
+            </view>
+            <view class="cu-bar btn-group">
+                <button bindtap="CopyUrl" class="cu-btn bg-{{theme}} shadow-blur round" data-ok_url="{{okUrl}}">复制视频地址</button>
+                <button bindtap="postSave" class="cu-btn bg-{{theme}} shadow-blur round">保存至相册</button>
+            </view>
+        </view>
+    </swiper-item>
+    <swiper-item>
+        <view class="steps" wx:if="{{showStep=='show'}}">
+            <view>短视频去水印步骤:</view>
+            <view>1.打开 <text bindtap="tabSelect" class="text-{{theme}}" data-id="2" data-tag="navTag">短视频APP</text>，在视频界面找到分享按钮</view>
+            <view>2.复制短视频链接至剪贴板</view>
+            <text class="text-xs">（无”复制链接”可通过分享到微信QQ等获取分享链接）</text>
+            <view>3.打开当前小程序，将链接粘贴至解析框内</view>
+            <view>4.点击上方“解析视频＂即可获取无水印视频</view>
+            <view>解析遇到问题，试试先查看 <text bindtap="faq" class="text-{{theme}}" data-target="bottomModal">常见问题</text>
+            </view>
+        </view>
+    </swiper-item>
+    <swiper-item>
+        <scroll-view scrollY="true" style="height:700rpx; width:100%">
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/douyin.png"></image>
+                <text>抖音</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/ppx.png"></image>
+                <text>皮皮</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/vshi.png"></image>
+                <text>微视</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/douyin.png"></image>
+                <text>TikTok</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/huoshan.png"></image>
+                <text>火山</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/kuaishou.png"></image>
+                <text>快手</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/toutiao.png"></image>
+                <text>头条</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/bilibili.png"></image>
+                <text>bilibili</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/acfun.png"></image>
+                <text>AcFun</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/changba.png"></image>
+                <text>唱吧</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/xiguashipin.png"></image>
+                <text>西瓜</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/wangyiyun.png"></image>
+                <text>网易云</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/weibo.png"></image>
+                <text>微博</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/xiaokaxiu.png"></image>
+                <text>小咖秀</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/yinke.png"></image>
+                <text>映客</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/lishipin.png"></image>
+                <text>梨视频</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/mangguotv.png"></image>
+                <text>芒果</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/meipai.png"></image>
+                <text>美拍</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/miaopai.png"></image>
+                <text>秒拍</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/zuiyou.png"></image>
+                <text>最右</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/youtube.png"></image>
+                <text>Youtube</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/facebook.png"></image>
+                <text>facebook</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/quanminkge.png"></image>
+                <text>全民k歌</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/momo.png"></image>
+                <text>陌陌</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/tumblr.png"></image>
+                <text>Tumblr</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/twitter.png"></image>
+                <text>Twitter</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/vimeo.png"></image>
+                <text>Vimeo</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/vine.png"></image>
+                <text>Vine</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/instagram.png"></image>
+                <text>instagram</text>
+            </view>
+            <view class="platforms-item">
+                <image src="../../images/parse-logo/shenglve.png"></image>
+                <text>等等</text>
+            </view>
+        </scroll-view>
+    </swiper-item>
+</swiper>
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+    <view class="cu-dialog">
+        <view class="cu-bar bg-white">
+            <view class="action text-white"></view>
+            <view bindtap="hideModal" class="action text-blue">取消</view>
+        </view>
+        <view class="padding-xl">
+            <scroll-view scrollY="true" style="height:75vh; width:100%">
+                <view class="text-item">
+                    <view>
+                        <text class="text-lg text-{{theme}}">视频解析收费吗？会限制次数吗？</text>
+                    </view>
+                    <view class="padding-top-xs padding-bottom-sm">
+                        <text>解析服务完全免费，不限次（可根据需要自行提升日上限）</text>
+                    </view>
+                </view>
+                <view class="text-item">
+                    <view>
+                        <text class="text-lg text-{{theme}}">为什么下载后的视频，还是有水印？</text>
+                    </view>
+                    <view class="padding-top-xs padding-bottom-sm">
+                        <text>视频去水印仅能去掉以官网方式下載时打上的水印对于源视频是二次上传的视频无法去水印</text>
+                    </view>
+                </view>
+                <view class="text-item">
+                    <view>
+                        <text class="text-lg text-{{theme}}">什么是二次上传，怎么判断？</text>
+                    </view>
+                    <view class="padding-top-xs padding-bottom-sm">
+                        <text>二次上传是指用户直接从视频平台APP下载视频，后又再次上传到视频平台；判断方法一般有两个1.视频平台APP内播放视频，有平台水印就是二次上传的2.在浏览器内打开视频分享链接，如果视频中有多个平台水印也是二次上传的。</text>
+                    </view>
+                </view>
+                <view class="text-item">
+                    <view>
+                        <text class="text-lg text-{{theme}}">解析后的视频含水印或解析失败？</text>
+                    </view>
+                    <view class="padding-top-xs padding-bottom-sm">
+                        <text>通常这种情况为解析到的真实地址包含了多个，服务随机返回其中之ー，被分配到了一个无效或不可用的地址，此时可多次尝试解析即可</text>
+                    </view>
+                </view>
+                <view class="text-item">
+                    <view>
+                        <text class="text-lg text-{{theme}}">提示下载成功，但相册找不到下载文件？</text>
+                    </view>
+                    <view class="padding-top-xs padding-bottom-sm">
+                        <text>安卓手机下载后素材，很有可能在“文件管理”模块</text>
+                    </view>
+                </view>
+                <view class="text-item">
+                    <view>
+                        <text class="text-lg text-{{theme}}">提示下载失败，或无响应？</text>
+                    </view>
+                    <view class="padding-top-xs padding-bottom-sm">
+                        <text>请确保程序授权管理中各项权限已打开，可点击右上角·按钮进入设置中查看。若赋予权限后仍出现无法下载情况，大部分原因是由于微信官方限制，小程序下载的文件大小不能超过10M</text>
+                    </view>
+                </view>
+                <view class="text-item">
+                    <view class="padding-top-xs padding-bottom-sm">
+                        <text>更多问题或建议请前往意见反馈页面，后台管理员会不定期进行处理及更新，也随时欢迎大家点赞及收藏小程序，第一时间获取最新功能体验</text>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+</view>
+<view class="footer">
+    <view class="padding-sm"></view>
+    <view class="text-gray text-center margin-bottom text-sm">- 视频归原平台所有，本程序不存储任何视频及图片-</view>
+    <view class="text-gray text-center margin-bottom text-sm">如果无法保存，请在ios黑科技回复捷径或用其他工具保存</view>
+    <view class="text-gray text-center margin-bottom text-sm">- © 微信公众号：随缘干货-</view>
+    <view class="padding-sm"></view>
+</view>

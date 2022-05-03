@@ -1,0 +1,18 @@
+.cu-form-group .title {
+    min-width: calc(4em + 30rpx);
+}
+
+.info-box {
+    margin-top: 60rpx;
+    position: relative;
+}
+
+.info-btn {
+    position: absolute;
+    top: -20rpx;
+    left: 10rpx;
+}
+
+.info-content {
+    margin-top: 50rpx;
+}

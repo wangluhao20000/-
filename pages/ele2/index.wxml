@@ -1,0 +1,45 @@
+<!--pages/ele2/index.wxml-->
+<cu-custom bgColor="bg-{{theme}}">
+    <view slot="content">外卖</view>
+</cu-custom>
+<view class="cu-card">
+    <view bindtap="toChild" class="cu-item bg-img shadow-blur" data-url="{{item.url}}" style="background-image:url({{item.img}});" wx:for="{{list}}">
+        <view class="cardTitle">
+        {{item.title}}
+      </view>
+    </view>
+</view>
+
+<view class="cu-card">
+    <van-tabs bind:change="onChange" active="{{ activeTab }}" swipeable>
+        <van-tab wx:for="{{tabs}}" title="{{item.title}}">
+        
+            <view class="container1">
+                <view class="coupon">
+                    <view class="item" wx:for="{{item.coupon}}"wx:for-index="i"  wx:for-item="v">
+                        <view class="top">
+                            <view class="left">
+                                <view class="content">
+                                    <image src="{{v.icon}}" class="icon" mode="widthFix" />
+                                    <view class="name">{{ v.name }}</view>
+                                </view>
+                            
+                            </view>
+                            <view class="right" data-index="{{i}}" bindtap="toCoupon">免费领取</view>
+                        </view>
+                        <view class="bottom">
+                            <image src="{{v.bannerPic}}" mode="widthFix" data-index="{{i}}" bindtap="toCoupon" />
+                        </view>
+
+           
+
+
+                    </view>
+                </view>
+            </view>
+        </van-tab>
+    </van-tabs>
+
+    <ad-custom unit-id="adunit-fc477312b8645bf9"></ad-custom>
+</view>
+
