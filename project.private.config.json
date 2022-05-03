@@ -1,0 +1,23 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/ele2/index",
+          "pathName": "pages/ele2/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}
